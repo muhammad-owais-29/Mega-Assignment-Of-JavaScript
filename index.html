@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1-67 javascript</title>
+    <style>
+        table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 70%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+#button{
+  margin-left:76px;
+  width:14%;
+  height:29px;
+  background-color: darkblue;
+  color:white;
+}
+#Username{
+margin-left:7px;
+height:25px;
+}
+
+#password{
+margin-left:11px;
+height:25px;
+}
+
+#img-s{
+display:inline-block;
+}
+
+
+
+.modal_image {
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.modal_image:hover {opacity: 0.7;}
+
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+/* Caption of Modal Image */
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+/* Add Animation */
+.modal-content, #caption {
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+    from {-webkit-transform: scale(0)}
+    to {-webkit-transform: scale(1)}
+}
+
+@keyframes zoom {
+    from {transform: scale(0.1)}
+    to {transform: scale(1)}
+}
+
+/* The Close Button */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+    .modal-content {
+        width: 100%;
+    }
+}
+
+
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+   <button onclick = "display()">Click Me!</button> 
+   
+   <div id="div-s">
+    <input type="button" value="Click To Display Images!" onclick="mobileImages(); mobileImages1(); mobileImages2();">
+    <img  id="images1" src="https://static.toiimg.com/photo/73078527.cms"  width="200" height="100" style="visibility: hidden;" >
+    <img  id="images2" src="https://www.androidcentral.com/sites/androidcentral.com/files/styles/mediumplus/public/article_images/2020/04/oneplus-8-pro-review-13.jpg"  width="200" height="100" style="visibility: hidden;" >
+    <img  id="images3" src="https://images.ctfassets.net/d6skzop43my5/6OyxwWln6Ke5UuX8hHLzZZ/5ae77b5f60dada8a8be63a0102ac7e45/nokia_5_3-front-cyan.png?q=50"  width="200" height="100" style="visibility: hidden;" >
+    <div>
+        <br>
+        <br>
+
+
+
+        <table id="delete">
+            <tr>
+              <th>Index</th>
+              <th>Name</th>
+              <th>Class</th>
+              <th>Delete</th>
+              
+            </tr>
+            <tr>
+              <td>0</td>
+              <td>Jhone</td>
+              <td>10</td>
+              <td ><input id ="btn1" type=submit value="Delete" style="width:40%;height:30px;background: #dddddd;" onclick="deleteRecord()"></td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>Doe</td>
+              <td>9</td>
+              <td ><input type=submit value="Delete" style="width:40%;height:30px;background: #ffffff;" onclick="deleteRecord()"></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Mark</td>
+              <td>10</td>
+              <td ><input type=submit value="Delete" style="width:40%;height:30px;background: #dddddd;" onclick="deleteRecord()"></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>James</td>
+                <td>8</td>
+                <td ><input type=submit value="Delete" style="width:40%;height:30px;background:#ffffff;" onclick="deleteRecord()"></td>
+              </tr>
+            </table>
+            <br>
+            <br>
+
+            <img src ="m4.png" id="img" width="30%" height="130px;"onmouseout="changeImage('img','m4.png')" onmouseover="changeImage('img','m5.png')">
+            <br>
+            <br>
+     
+
+  
+  <label for="Username">Username</label>
+  <input type="text" name="Username" id="Username">
+  <br>
+  <br>
+  <label for="password">Password</label>
+  <input type="password" name="password" id="password">
+  <br>
+  <br>
+  <button type="submit" id="button" value="submit" onclick="testing()">Login</button>
+  <span id="spanResult">
+
+  </span>  
+
+<br>
+<br>
+
+<p id = "para">Lorem ipsum dolor sit amet, consectetur <button href="javascript:void(0)"onclick = "readMore()">Read More</button></p> 
+<br>
+<br>
+
+
+
+
+
+<div id="wrapper">
+  <table align='center' cellspacing=2 cellpadding=5 id="data_table" border=1>
+  <tr>
+  <th>Index</th>
+  <th>Name</th>
+  <th>Class</th>
+  <th>Editable Deletion Save </th>
+  </tr>
+  
+  <tr id="row1">
+  <td id="name_row1">0</td>
+  <td id="country_row1">Jhone</td>
+  <td id="age_row1">10</td>
+  <td>
+  <input type="button" id="edit_button1" value="Edit" class="edit" onclick="edit_row('1')">
+  <input type="button" id="save_button1" value="Save" class="save" onclick="save_row('1')">
+  <input type="button" value="Delete" class="delete" onclick="delete_row('1')">
+  </td>
+  </tr>
+  
+  <tr id="row2">
+  <td id="name_row2">1</td>
+  <td id="country_row2">Doe</td>
+  <td id="age_row2">9</td>
+  <td>
+  <input type="button" id="edit_button2" value="Edit" class="edit" onclick="edit_row('2')">
+  <input type="button" id="save_button2" value="Save" class="save" onclick="save_row('2')">
+  <input type="button" value="Delete" class="delete" onclick="delete_row('2')">
+  </td>
+  </tr>
+  
+  <tr id="row3">
+  <td id="name_row3">2</td>
+  <td id="country_row3">Mark</td>
+  <td id="age_row3">10</td>
+  <td>
+  <input type="button" id="edit_button3" value="Edit" class="edit" onclick="edit_row('3')">
+  <input type="button" id="save_button3" value="Save" class="save" onclick="save_row('3')">
+  <input type="button" value="Delete" class="delete" onclick="delete_row('3')">
+  </td>
+  </tr>
+
+  <tr id="row3">
+    <td id="name_row3">3</td>
+    <td id="country_row3">James</td>
+    <td id="age_row3">8</td>
+    <td>
+    <input type="button" id="edit_button3" value="Edit" class="edit" onclick="edit_row('4')">
+    <input type="button" id="save_button3" value="Save" class="save" onclick="save_row('4')">
+    <input type="button" value="Delete" class="delete" onclick="delete_row('4')">
+    </td>
+    </tr>
+  
+  <!-- <tr>
+  <td><input type="text" id="new_name"></td>
+  <td><input type="text" id="new_country"></td>
+  <td><input type="text" id="new_age"></td>
+  <td><input type="button" class="add" onclick="add_row();" value="Add Row"></td>
+  </tr> -->
+  
+  </table>
+  </div>
+  <br>
+  <br>
+
+  
+
+  <img class="image_modal" id="img_1" src="https://wallpaperaccess.com/full/1154432.jpg" alt="lights" width="300" height="200">
+<img class="image_modal" id="img_2" src="https://www.dave-derbis.de/images/photos/waterfall_of_the_gods.jpg" alt="lights" width="300" height="200">
+<img class="image_modal" id="img_3" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS3VNJhuR33n-OboF1ocFQAX_z1BKwEh64iwg&usqp=CAU" alt="lights" width="300" height="200">
+<img class="image_modal" id="img_4" src="https://wallup.net/wp-content/uploads/2017/03/28/421408-photography-nature-landscape-mountains-lake-trees-emerald-water-summer.jpg" alt="lights" width="300" height="200">
+
+
+<div id="modalImg" class="modal">
+  <span class="close">×</span>
+  <img class="modal-content" id="img01">
+  <div id="description"></div>
+</div>     
+<br>
+<br>
+
+
+<div
+><h1> DOM </h
+  ><div id="form-content" class="content"
+  ><label for="first-name">First Name</label
+    ><input type="text" id="first-name" 
+    ><label for="last-name">Last Name</label
+      ><input type="text" id="last-name" 
+      ><label for="email">Email</label
+        ><input type="text" id="email" 
+        ></div
+        ><div id="main-content" class="content "
+        ><p class="render"> First Name : Alex</p
+          > <p class="render" id="lastName">Last Name: Bank</p
+            ><p class="render"> Email : alexbank@example.com</p
+              ><p class="render"> Country : Pakistan </p
+                ><p class="render"> contact : +92 300 1234567</p
+                  ></div
+                  ></div>
+
+</body>
+<script src= "1-67.js"></script>
+</html>
